@@ -4,7 +4,6 @@ import adapters.FileUtils
 import usecases.day02.InvalidIdManager
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import kotlin.test.assertTrue
 
 class InvalidIdManagerTest {
 

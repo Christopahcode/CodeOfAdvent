@@ -9,8 +9,8 @@ import kotlin.test.assertEquals
 class ListPairIntExtensionsTest {
     @Test
     fun `toNumberRanges expands pairs into full number lists`() {
-        val from = 95
-        val to = 115
+        val from = 95L
+        val to = 115L
         val parsedRanges = listOf("$from-$to").parseRanges()
         val expected = listOf(
             NumberRange(from to to, (from..to).toList())
@@ -19,11 +19,11 @@ class ListPairIntExtensionsTest {
     }
     @Test
     fun `toNumberRanges expands pairs into full number lists multiple parsedRanges`() {
-        val from01 = 998
-        val to01 = 1012
+        val from01 = 998L
+        val to01 = 1012L
 
-        val from02 = 1188511880
-        val to02 = 1188511890
+        val from02 = 1188511880L
+        val to02 = 1188511890L
 
         val parsedRanges = listOf("$from01-$to01","$from02-$to02" ).parseRanges()
         val expected = listOf(
