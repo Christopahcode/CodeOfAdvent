@@ -3,7 +3,7 @@ import extensions.distanceTo
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class QuickMathsTest {
+class IntExtensionsTest {
 
     @Test
     fun `WHEN Int-diff SHOULD RETURN the difference between the numbers`() {

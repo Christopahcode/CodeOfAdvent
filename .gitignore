@@ -43,3 +43,6 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+# Project-specific ignores
+src/main/resources/Day01.txt

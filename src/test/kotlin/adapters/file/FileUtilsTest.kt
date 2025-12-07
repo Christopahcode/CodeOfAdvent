@@ -10,19 +10,17 @@ class FileUtilsTest {
 
     @Test
     fun `When FileUtils-linesToStringArray, should add each line to array `() {
-        val reader = FileUtils("Day01_testFile")
+        val reader = FileUtils("Day01_snippet.txt")
         val lines = reader.linesToStringArray()
-        assertEquals(3, lines.size)
+        assertEquals(10, lines.size)
     }
 
     @Test
     fun `When FileUtils-linesToStringArray with file that does not exist, should throw exception`() {
-        val reader = FileUtils("fil-som-ikke-eksisterer.txt")
-
+        val reader = FileUtils("no-file.txt")
         val exception = assertFailsWith<IllegalArgumentException> {
             reader.linesToStringArray()
         }
-
-        assertTrue(exception.message!!.contains("Fant ikke filen"))
+        assertTrue(exception.message!!.contains("File not found"))
     }
 }
