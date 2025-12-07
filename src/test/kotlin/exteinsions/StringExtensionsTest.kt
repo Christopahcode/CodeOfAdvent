@@ -4,7 +4,7 @@ import extensions.toSteps
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class StringExtensionTest {
+class StringExtensionsTest {
 
     @Test
     fun `toSteps extracts the number after L or R`() {
