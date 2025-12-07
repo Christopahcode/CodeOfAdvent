@@ -1,0 +1,4 @@
+package exteinsions
+
+class StringExtensionTest {
+}
