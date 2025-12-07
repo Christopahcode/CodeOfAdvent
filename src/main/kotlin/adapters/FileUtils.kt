@@ -23,4 +23,30 @@ class FileUtils (private val resourcePath: String) : FileReader {
         }
         throw IllegalArgumentException("File not found on following path: $resourcePath")
     }
+
+    override fun singleLongLineSeparatedByCommaToStringArray(): List<String> {
+        val normalizedPath = resourcePath.removePrefix("/").let { path ->
+            if (path.endsWith(".txt")) path else "$path.txt"
+        }
+
+        val classLoaders = listOf(
+            FileUtils::class.java.classLoader,
+            Thread.currentThread().contextClassLoader,
+            ClassLoader.getSystemClassLoader()
+        )
+
+        for (cl in classLoaders) {
+            cl?.getResourceAsStream(normalizedPath)?.use { stream ->
+                return stream.bufferedReader().use { reader ->
+                    reader.readText()
+                        .trim()
+                        .split(",")
+                        .map { it.trim() }
+                        .filter { it.isNotEmpty() }
+                }
+            }
+        }
+
+        throw IllegalArgumentException("File not found: $resourcePath")
+    }
 }

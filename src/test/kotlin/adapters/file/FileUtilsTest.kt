@@ -23,4 +23,12 @@ class FileUtilsTest {
         }
         assertTrue(exception.message!!.contains("File not found"))
     }
+
+    @Test
+    fun `When FileUtils-singleLongLineSeparatedByCommaToStringArray, should add values separated by commas to array `() {
+        val reader = FileUtils("Day02_snippet.txt")
+        val lines = reader.singleLongLineSeparatedByCommaToStringArray()
+        assertEquals(11, lines.size)
+        assertEquals("824824821-824824827", lines[9])
+    }
 }
