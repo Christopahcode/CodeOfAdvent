@@ -8,11 +8,9 @@ class InvalidIdManager {
     fun executePart01(lines: List<String>): Long {
         return lines.parseRanges()
             .toNumberRanges()
-            .sumOf { range ->
-                range.allRangesForCurrentRange
-                    .filter { it.isInvalidId() }
-                    .sumOf { it }
-            }
+            .flatMap { it.allRangesForCurrentRange }
+            .filter { it.isInvalidId() }
+            .sumOf { it }
     }
 }
 
