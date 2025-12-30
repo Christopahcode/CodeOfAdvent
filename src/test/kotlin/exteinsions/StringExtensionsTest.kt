@@ -1,5 +1,6 @@
 package exteinsions
 
+import extensions.allTwoDigitCombinations
 import extensions.toSteps
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -29,5 +30,24 @@ class StringExtensionsTest {
     fun `toSteps returns 0 when no digits`() {
         assertEquals(0, "XYZ".toSteps())
         assertEquals(0, "".toSteps())
+    }
+
+    @Test
+    fun `allTwoDigitCombinations with 987654321111111 returns 105 elements`() {
+        assertEquals(105, "987654321111111".allTwoDigitCombinations().size)
+    }
+
+    @Test
+    fun `allTwoDigitCombinations with 987654321111111 returns 91 on position 8 in array`() {
+        assertEquals("91","987654321111111".allTwoDigitCombinations()[8])
+    }
+
+    @Test
+    fun `allTwoDigitCombinations with 987654321111111 returns 11 on last position in array`() {
+        assertEquals("11","987654321111111".allTwoDigitCombinations().last())
+    }
+    @Test
+    fun `allTwoDigitCombinations with 987654321111111 returns 98 on first position in array`() {
+        assertEquals("98","987654321111111".allTwoDigitCombinations().first())
     }
 }
