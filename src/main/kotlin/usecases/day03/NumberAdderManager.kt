@@ -1,15 +1,19 @@
 package usecases.day03
 import adapters.FileUtils
+import extensions.allTwoDigitCombinations
 
 
 class NumberAdderManager {
     fun executePart01(lines: List<String>): Int {
-        return lines.size
+        val totalSum = lines.sumOf { line ->
+            line.allTwoDigitCombinations().maxOf { it.toInt() }
+        }
+        return totalSum
     }
 }
 
-
 fun main() {
     val lines = FileUtils("Day03.txt").linesToStringArray()
-    NumberAdderManager().executePart01(lines)
+    val result = NumberAdderManager().executePart01(lines)
+    println(result)
 }
